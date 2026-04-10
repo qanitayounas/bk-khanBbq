@@ -1,26 +1,274 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Musaafer-exact palette: deep purple/brown/gold */
+  --color-bg-primary: #1a1118;
+  --color-bg-secondary: #150f14;
+  --color-bg-tertiary: #211820;
+  --color-bg-dark: #0e0a0d;
+  --color-gold: #c5a44e;
+  --color-gold-light: #d4b85c;
+  --color-gold-dark: #a08530;
+  --color-gold-btn: #c5a44e;
+  --color-cream: #f5f0e8;
+  --color-cream-dark: #d4cfc5;
+  --color-white: #ffffff;
+  --color-purple: #3d2438;
+  --color-purple-light: #4d2e48;
+  --color-purple-dark: #2a1524;
+  --color-text-primary: #e8e0d6;
+  --color-text-secondary: #a8998a;
+  --color-text-muted: #6b5f55;
+  --color-border: rgba(197, 164, 78, 0.15);
+  --color-border-light: rgba(197, 164, 78, 0.3);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-primary: var(--color-bg-primary);
+  --color-bg-secondary: var(--color-bg-secondary);
+  --color-bg-tertiary: var(--color-bg-tertiary);
+  --color-bg-dark: var(--color-bg-dark);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-gold-btn: var(--color-gold-btn);
+  --color-cream: var(--color-cream);
+  --color-cream-dark: var(--color-cream-dark);
+  --color-purple: var(--color-purple);
+  --color-purple-light: var(--color-purple-light);
+  --color-purple-dark: var(--color-purple-dark);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-border: var(--color-border);
+  --color-border-light: var(--color-border-light);
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Raleway', 'Inter', Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--color-gold); color: var(--color-bg-primary); }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--color-bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--color-gold-dark); border-radius: 2px; }
+
+/* ============ DECORATIVE PATTERN ============ */
+.pattern-bg {
+  position: relative;
+}
+.pattern-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath d='M30 5C30 5 35 15 35 25C35 35 30 40 30 40C30 40 25 35 25 25C25 15 30 5 30 5Z' fill='%23c5a44e' opacity='0.5'/%3E%3Cpath d='M30 20C30 20 38 25 38 30C38 35 30 40 30 40C30 40 22 35 22 30C22 25 30 20 30 20Z' fill='%23c5a44e' opacity='0.3'/%3E%3Ccircle cx='30' cy='30' r='3' fill='%23c5a44e' opacity='0.4'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-60px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(60px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes scrollLine { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+
+.animate-fade-in-up { animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.animate-fade-in { animation: fadeIn 1.2s ease-out forwards; }
+
+.reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-60px); transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(60px); transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* Gold gradient text */
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold-dark), var(--color-gold-light), var(--color-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============ ORNAMENTAL DIVIDER ============ */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.ornament::before, .ornament::after {
+  content: '';
+  height: 1px;
+  width: 60px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+/* ============ BUTTONS ============ */
+.btn-gold-filled {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--color-gold-btn);
+  color: var(--color-bg-primary);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-gold-filled:hover {
+  background: var(--color-gold-light);
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 14px 36px;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: var(--color-gold);
+  transition: left 0.4s ease;
+  z-index: 0;
+}
+.btn-outline:hover { color: var(--color-bg-primary); }
+.btn-outline:hover::before { left: 0; }
+.btn-outline span { position: relative; z-index: 1; }
+
+.btn-dark-outline {
+  display: inline-block;
+  padding: 14px 36px;
+  border: 1px solid var(--color-text-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-dark-outline:hover {
+  background: var(--color-text-primary);
+  color: var(--color-bg-primary);
+}
+
+/* ============ FLOATING BUTTONS ============ */
+.floating-btn-left {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: rgba(26, 17, 24, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border-light);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.floating-btn-left:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+.floating-btn-right {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 40;
+  padding: 14px 28px;
+  background: var(--color-gold-btn);
+  color: var(--color-bg-primary);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+.floating-btn-right:hover {
+  background: var(--color-gold-light);
+}
+
+/* ============ SECTION SPACING ============ */
+.section-padding { padding: 100px 0; }
+@media (max-width: 768px) { .section-padding { padding: 60px 0; } }
+
+/* ============ GOLD DIVIDER LINE ============ */
+.gold-line {
+  width: 50px;
+  height: 2px;
+  background: var(--color-gold);
+}
+
+/* ============ SCROLL INDICATOR ============ */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.scroll-indicator .line {
+  width: 1px;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+}
+.scroll-indicator .line::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: var(--color-gold);
+  animation: scrollLine 1.5s ease-in-out infinite;
 }
