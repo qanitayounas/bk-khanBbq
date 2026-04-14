@@ -40,7 +40,11 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${dmSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <div className="max-w-[1920px] w-full mx-auto relative shadow-2xl shadow-black/20">
+          {children}
+        </div>
+      </body>
     </html>
   );
 }

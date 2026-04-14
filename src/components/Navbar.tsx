@@ -4,24 +4,24 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const actionButtons = [
-  { label: "Catering", href: "#contact" },
-  { label: "Events", href: "#contact" },
-  { label: "Press", href: "#about" },
-  { label: "To-Go", href: "#menu" },
+  { label: "Catering", href: "/#contact" },
+  { label: "Events", href: "/events" },
+  { label: "Press", href: "/press" },
+  { label: "To-Go", href: "/menu" },
 ];
 
 const navLinks = [
   { label: "The Journey", href: "/the-journey" },
   { label: "Menu", href: "/menu" },
-  { label: "Private Events", href: "#spaces" },
-  { label: "Off-Site Events", href: "#contact" },
-  { label: "Details", href: "#about" },
-  { label: "Contact", href: "#contact" },
-  { label: "Gift Cards", href: "#contact" },
+  { label: "Private Events", href: "/private-events" },
+  { label: "Off-Site Events", href: "/off-site-events" },
+  { label: "Details", href: "/details" },
+  { label: "Contact", href: "/#contact" },
+  { label: "Gift Cards", href: "/#contact" },
 ];
 
 function isActive(href: string, pathname: string) {
-  if (href.startsWith("#")) return false;
+  if (href.startsWith("/#")) return false;
   return pathname === href;
 }
 
@@ -39,7 +39,7 @@ export default function Navbar() {
 
   return (
     <nav className="absolute top-0 left-0 right-0 z-50 bg-transparent">
-      <div className="max-w-[1400px] mx-auto px-4 xl:px-6 flex items-center justify-between py-5 xl:py-6">
+      <div className="max-w-[1600px] mx-auto px-4 xl:px-8 2xl:px-12 flex items-center justify-between py-5 xl:py-6">
         {/* Logo */}
         <a href="/" className="shrink-0 relative z-10">
           <img
@@ -51,25 +51,29 @@ export default function Navbar() {
 
         {/* Desktop Right Side - Two Rows */}
         <div className="hidden lg:flex flex-col items-end gap-3 xl:gap-4 min-w-0">
-          {/* Top Row: Catering, Events, Press, [social icons], To-Go */}
+          {/* Top Row: Action Buttons + Social Icons */}
           <div className="flex items-center flex-wrap justify-end gap-1.5 xl:gap-2">
-            <a href="#contact" className="bg-gold text-dark text-xs xl:text-sm tracking-[0.1em] uppercase px-4 xl:px-6 py-2 xl:py-2.5 font-semibold hover:bg-white hover:text-dark transition-all duration-300 whitespace-nowrap">Catering</a>
-            <a href="#contact" className="bg-gold text-dark text-xs xl:text-sm tracking-[0.1em] uppercase px-4 xl:px-6 py-2 xl:py-2.5 font-semibold hover:bg-white hover:text-dark transition-all duration-300 whitespace-nowrap">Events</a>
-            <a href="#about" className="bg-gold text-dark text-xs xl:text-sm tracking-[0.1em] uppercase px-4 xl:px-6 py-2 xl:py-2.5 font-semibold hover:bg-white hover:text-dark transition-all duration-300 whitespace-nowrap">Press</a>
+            {actionButtons.map((btn) => (
+              <a
+                key={btn.label}
+                href={btn.href}
+                className="bg-gold text-dark text-xs xl:text-sm tracking-[0.1em] uppercase px-4 xl:px-6 py-2 xl:py-2.5 font-semibold hover:bg-white hover:text-dark transition-all duration-300 whitespace-nowrap"
+              >
+                {btn.label}
+              </a>
+            ))}
 
             {/* Social Icons */}
-            <a href="#" aria-label="Facebook" className="text-cream/80 hover:text-gold transition-colors duration-300 mx-1 xl:mx-1.5">
+            <a href="#" aria-label="Facebook" className="text-gold hover:text-charcoal transition-colors duration-300 mx-1 xl:mx-1.5">
               <svg className="w-5 h-5 xl:w-5.5 xl:h-5.5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" />
               </svg>
             </a>
-            <a href="#" aria-label="Instagram" className="text-cream/80 hover:text-gold transition-colors duration-300 mr-1 xl:mr-1.5">
+            <a href="#" aria-label="Instagram" className="text-gold hover:text-charcoal transition-colors duration-300 mr-1 xl:mr-1.5">
               <svg className="w-5 h-5 xl:w-5.5 xl:h-5.5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5A4.25 4.25 0 0020.5 16.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7zm5.25-2.5a1 1 0 110 2 1 1 0 010-2z" />
               </svg>
             </a>
-
-            <a href="#menu" className="bg-gold text-dark text-xs xl:text-sm tracking-[0.1em] uppercase px-4 xl:px-6 py-2 xl:py-2.5 font-semibold hover:bg-white hover:text-dark transition-all duration-300 whitespace-nowrap">To-Go</a>
           </div>
 
           {/* Bottom Row: Navigation Links */}

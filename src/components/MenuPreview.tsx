@@ -163,7 +163,7 @@ export default function MenuPreview() {
         {/* View Full Menu CTA */}
         <div className="text-center mt-12">
           <a
-            href="#contact"
+            href="/#contact"
             className="inline-block border border-gold/40 text-gold text-xs tracking-[0.25em] uppercase px-10 py-4 hover:bg-gold hover:text-dark transition-all duration-300 btn-shimmer"
           >
             View Full Menu

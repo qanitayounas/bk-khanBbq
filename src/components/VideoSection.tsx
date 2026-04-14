@@ -31,7 +31,7 @@ export default function VideoSection() {
 
   return (
     <section className="bg-dark py-8 md:py-12 lg:py-16">
-      <div ref={sectionRef} className="max-w-[1200px] mx-auto px-4 md:px-6 opacity-0 scale-95 transition-all duration-1000">
+      <div ref={sectionRef} className="max-w-[1400px] mx-auto px-4 md:px-6 opacity-0 scale-95 transition-all duration-1000">
         <div className="relative aspect-video rounded-sm overflow-hidden">
           {/* Video */}
           <video

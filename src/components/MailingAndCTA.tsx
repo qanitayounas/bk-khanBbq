@@ -39,7 +39,7 @@ export default function MailingAndCTA() {
 
       {/* Join Mailing List */}
       <div ref={mailingRef} className={`relative z-10 bg-gold py-10 md:py-14 lg:py-20 transition-all duration-1000 ${mailingVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-        <div className="max-w-[1400px] mx-auto px-4 md:px-6">
+        <div className="max-w-[1600px] mx-auto px-4 md:px-6">
           <div className="max-w-[1100px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
             <h2 className="font-heading text-dark text-lg md:text-2xl lg:text-3xl tracking-[0.15em] md:tracking-[0.25em] uppercase leading-relaxed text-center md:text-left">
               Join the<br />
@@ -63,7 +63,7 @@ export default function MailingAndCTA() {
 
       {/* Quest Section */}
       <div ref={questRef} className="relative z-10 py-12 md:py-20 lg:py-28">
-        <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
+        <div className="max-w-[1600px] mx-auto px-4 md:px-8 lg:px-12">
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12 lg:gap-20">
             {/* Left - Text & Buttons */}
             <div className={`flex-1 max-w-lg transition-all duration-1000 ${questVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>
@@ -82,13 +82,13 @@ export default function MailingAndCTA() {
 
               <div className="flex gap-3 md:gap-4 mt-6 md:mt-10">
                 <a
-                  href="#menu"
+                  href="/menu"
                   className="border-2 border-cream/60 text-cream text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.25em] uppercase px-5 md:px-8 py-2.5 md:py-3 hover:bg-gold hover:text-dark hover:border-gold transition-all duration-300"
                 >
                   Menu
                 </a>
                 <a
-                  href="#journey"
+                  href="/the-journey"
                   className="border-2 border-cream/60 text-cream text-[10px] md:text-xs tracking-[0.2em] md:tracking-[0.25em] uppercase px-5 md:px-8 py-2.5 md:py-3 hover:bg-gold hover:text-dark hover:border-gold transition-all duration-300"
                 >
                   The Journey

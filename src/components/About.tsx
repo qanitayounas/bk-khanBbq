@@ -98,7 +98,7 @@ export default function About() {
               </div>
             </div>
             <a
-              href="#journey"
+              href="/the-journey"
               className="inline-block mt-4 text-gold text-xs tracking-[0.2em] uppercase border-b border-gold/30 pb-1 hover:border-gold transition-colors duration-300"
             >
               Discover Our Journey &rarr;

@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer className="bg-cream py-8 md:py-14 pb-24 md:pb-28">
-      <div className="max-w-[1200px] mx-auto px-6 md:pl-24 lg:pl-48">
+      <div className="max-w-[1400px] mx-auto px-6 md:pl-12 lg:pl-24">
         <div className="flex flex-col md:flex-row items-start justify-between gap-8 md:gap-10">
           {/* Left - Hours */}
           <div className="text-dark">

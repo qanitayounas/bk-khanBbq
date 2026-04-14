@@ -37,7 +37,7 @@ export default function Contact() {
         backgroundSize: "80px 80px",
       }} />
 
-      <div className="max-w-[1200px] mx-auto px-4 md:px-6 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 xl:gap-24">
           {/* Left - Contact Info */}
           <div ref={leftRef} className={`transition-all duration-1000 ${leftVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}>

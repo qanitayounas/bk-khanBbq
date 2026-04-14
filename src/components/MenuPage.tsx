@@ -133,7 +133,7 @@ export default function MenuPage() {
           menuVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 md:gap-10 lg:gap-20">
           {/* Left - Hero image */}
           <div className="flex-1 w-full max-w-xl lg:max-w-2xl">
             <div className="relative group">
